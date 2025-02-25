@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your Reference ID</h2>
+        <input type="text" id="refId" placeholder="Enter Reference ID">
+        <button onclick="trackItem()">Track</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const trackingData = {
+            "12345": "Sadik Pagal hai.",
+            "67890": "Your order has been delivered.",
+            "54321": "Shipment is delayed due to weather conditions.",
+            "98765": "Your package is being processed at the warehouse."
+        };
+
+        function trackItem() {
+            const refId = document.getElementById("refId").value;
+            const result = document.getElementById("result");
+            
+            if (trackingData[refId]) {
+                result.textContent = trackingData[refId];
+            } else {
+                result.textContent = "Invalid Reference ID. Please try again.";
+            }
+        }
+    </script>
+</body>
+</html>
